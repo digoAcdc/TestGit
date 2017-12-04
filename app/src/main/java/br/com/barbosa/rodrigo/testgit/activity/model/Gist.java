@@ -8,6 +8,8 @@ import java.util.Map;
 
 public class Gist {
 
+    private String id;
+
     private Owner owner;
     private Map<String, File> files;
 
@@ -25,5 +27,13 @@ public class Gist {
 
     public void setFiles(Map<String, File> files) {
         this.files = files;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

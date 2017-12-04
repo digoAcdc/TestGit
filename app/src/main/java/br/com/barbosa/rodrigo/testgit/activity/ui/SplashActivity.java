@@ -1,4 +1,4 @@
-package br.com.barbosa.rodrigo.testgit.activity;
+package br.com.barbosa.rodrigo.testgit.activity.ui;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -8,7 +8,6 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
 import br.com.barbosa.rodrigo.testgit.R;
-import br.com.barbosa.rodrigo.testgit.activity.ui.MainActivity;
 
 
 public class SplashActivity extends AppCompatActivity {

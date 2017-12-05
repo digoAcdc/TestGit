@@ -20,11 +20,12 @@ public class MainPresenter {
 
     private MainView mainView;
 
+
     public MainPresenter(MainView mainView) {
         this.mainView = mainView;
     }
 
-    public void load() {
+    public void load(int page, int per_page) {
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://api.github.com/")
@@ -34,7 +35,7 @@ public class MainPresenter {
 
         GistAPI api = retrofit.create(GistAPI.class);
 
-        api.getAllPublic()
+        api.getAllPublic(page, per_page)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnError(new Action1<Throwable>() {

@@ -44,7 +44,7 @@
                     android:id="@+id/imvAvatar"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    tools:src="@mipmap/ic_launcher" />
+                   android:src="@drawable/ic_avatar"/>
 
             </LinearLayout>
 

@@ -19,7 +19,6 @@ import br.com.barbosa.rodrigo.testgit.activity.model.File;
 import br.com.barbosa.rodrigo.testgit.activity.model.Gist;
 
 
-
 public class GistAdapter extends RecyclerView.Adapter<GistAdapter.CustomViewHolder> {
 
 
@@ -38,7 +37,7 @@ public class GistAdapter extends RecyclerView.Adapter<GistAdapter.CustomViewHold
         public void OnClick(View view, int index);
     }
 
-    public void addAll( List<Gist> lstGist){
+    public void addAll(List<Gist> lstGist) {
         mLstGist.addAll(lstGist);
         notifyDataSetChanged();
     }
@@ -58,23 +57,25 @@ public class GistAdapter extends RecyclerView.Adapter<GistAdapter.CustomViewHold
 
 
         holder.tvNome.setText(f.getFilename());
-        holder.tvTitulo.setText(e.getOwner().getLogin());
+        if (e.getOwner() != null)
+            holder.tvTitulo.setText(e.getOwner().getLogin() == null ? "" : e.getOwner().getLogin());
         holder.tvIdioma.setText(f.getLanguage());
 
         holder.view.setTag(e.getId());
 
-        Picasso.with(context).load(e.getOwner().getAvatarUrl()).into(holder.imvAvatar);
-        if (onClickListener != null) {
+        if (e.getOwner() != null)
+            if (e.getOwner().getAvatarUrl() != null)
+                Picasso.with(context).load(e.getOwner().getAvatarUrl()).into(holder.imvAvatar);
 
+
+        if (onClickListener != null) {
             holder.view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     onClickListener.OnClick(holder.view, position);
                 }
             });
-
         }
-
     }
 
     @Override

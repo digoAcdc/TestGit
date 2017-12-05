@@ -12,9 +12,7 @@ import java.util.HashMap;
 
 import br.com.barbosa.rodrigo.testgit.activity.model.Favorito;
 
-/**
- * Created by rodrigobarbosa on 05/12/17.
- */
+
 
 public class DBHelper extends SQLiteOpenHelper {
 
@@ -36,8 +34,8 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         // TODO Auto-generated method stub
         db.execSQL(
-                "create table contacts " +
-                        "(id String primary key, COLUMN_NOME text,COLUMN_TITULO text,COLUMN_IDIOMA text, COLUMN_IMAGEM text)"
+                "create table favorito " +
+                        "(id String primary key, nome text,titulo text,idioma text, imagem text)"
         );
     }
 

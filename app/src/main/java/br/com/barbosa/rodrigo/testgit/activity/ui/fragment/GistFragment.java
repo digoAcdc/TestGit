@@ -12,6 +12,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -104,13 +106,18 @@ public class GistFragment extends Fragment implements MainView {
                 if (Boolean.valueOf(imvFavorito.getTag().toString())) {
                     Gist g = mAdapter.getWithIndex(index);
                     db.deleteFavorito(g.getId());
-                    getActivity().runOnUiThread(new Runnable() {
+
+                    imvFavorito.setImageResource(R.drawable.ic_nao_favoritado);
+                    Animation pulse = AnimationUtils.loadAnimation(getContext(), R.anim.pulse);
+                    imvFavorito.startAnimation(pulse);
+                    imvFavorito.setTag(false);
+                    /*getActivity().runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
                             Picasso.with(getContext()).load(R.drawable.ic_nao_favoritado).into(imvFavorito);
                             imvFavorito.setTag(false);
                         }
-                    });
+                    });*/
                 } else {
                     Gist g = mAdapter.getWithIndex(index);
                     File file = (File) g.getFiles().values().toArray()[0];
@@ -127,13 +134,17 @@ public class GistFragment extends Fragment implements MainView {
 
 
                     db.insertFavorito(f);
-                    getActivity().runOnUiThread(new Runnable() {
+                    imvFavorito.setImageResource(R.drawable.ic_favorito);
+                    Animation pulse = AnimationUtils.loadAnimation(getContext(), R.anim.pulse);
+                    imvFavorito.startAnimation(pulse);
+                    imvFavorito.setTag(true);
+                    /*getActivity().runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
                             Picasso.with(getContext()).load(R.drawable.ic_favorito).into(imvFavorito);
                             imvFavorito.setTag(true);
                         }
-                    });
+                    });*/
 
 
                 }

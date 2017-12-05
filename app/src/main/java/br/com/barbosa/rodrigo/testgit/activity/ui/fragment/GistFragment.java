@@ -24,6 +24,7 @@ import br.com.barbosa.rodrigo.testgit.R;
 import br.com.barbosa.rodrigo.testgit.activity.adapter.GistAdapter;
 import br.com.barbosa.rodrigo.testgit.activity.data.DBHelper;
 import br.com.barbosa.rodrigo.testgit.activity.model.Favorito;
+import br.com.barbosa.rodrigo.testgit.activity.model.File;
 import br.com.barbosa.rodrigo.testgit.activity.model.Gist;
 import br.com.barbosa.rodrigo.testgit.activity.ui.MainActivity;
 import br.com.barbosa.rodrigo.testgit.activity.ui.MainPresenter;
@@ -101,7 +102,8 @@ public class GistFragment extends Fragment implements MainView {
                 final ImageView imvFavorito = view.findViewById(R.id.imvFavorito);
 
                 if (Boolean.valueOf(imvFavorito.getTag().toString())) {
-                    db.deleteFavorito("id de teste");
+                    Gist g = mAdapter.getWithIndex(index);
+                    db.deleteFavorito(g.getId());
                     getActivity().runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
@@ -110,12 +112,20 @@ public class GistFragment extends Fragment implements MainView {
                         }
                     });
                 } else {
+                    Gist g = mAdapter.getWithIndex(index);
+                    File file = (File) g.getFiles().values().toArray()[0];
                     Favorito f = new Favorito();
-                    f.setId("id de teste");
-                    f.setIdioma("java");
-                    f.setNome("nome fsdf");
-                    f.setTitulo("titulo fsdafasf");
-                    f.setImagem("caminha da imagem");
+                    f.setId(g.getId());
+                    f.setIdioma(getString(R.string.idioma, f.getIdioma()));
+                    f.setNome(getString(R.string.nome, file.getFilename()));
+                    if (g.getOwner() != null)
+                        f.setTitulo(g.getOwner().getLogin() == null ? "" : g.getOwner().getLogin());
+
+                    if (g.getOwner() != null)
+                        if (g.getOwner().getAvatarUrl() != null)
+                            f.setImagem(g.getOwner().getAvatarUrl());
+
+
                     db.insertFavorito(f);
                     getActivity().runOnUiThread(new Runnable() {
                         @Override

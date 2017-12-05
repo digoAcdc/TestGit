@@ -68,7 +68,7 @@ public class GistAdapter extends RecyclerView.Adapter<GistAdapter.CustomViewHold
             holder.tvTitulo.setText(e.getOwner().getLogin() == null ? "" : e.getOwner().getLogin());
         holder.tvIdioma.setText(context.getString(R.string.idioma, f.getLanguage()));
 
-        holder.view.setTag(e.getId());
+        holder.view.setTag(position);
         holder.imvFavorito.setTag(false);
 
         if (e.getOwner() != null)

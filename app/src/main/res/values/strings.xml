@@ -3,4 +3,9 @@
 
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <string name="nome">nome: %1$s</string>
+    <string name="idioma">idioma: %1$s</string>
+    <string name="titulo">Titulo</string>
+
 </resources>

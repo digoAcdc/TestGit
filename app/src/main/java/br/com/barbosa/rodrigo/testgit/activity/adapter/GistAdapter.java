@@ -56,10 +56,10 @@ public class GistAdapter extends RecyclerView.Adapter<GistAdapter.CustomViewHold
         File f = (File) e.getFiles().values().toArray()[0];
 
 
-        holder.tvNome.setText(f.getFilename());
+        holder.tvNome.setText(context.getString(R.string.nome, f.getFilename()));
         if (e.getOwner() != null)
             holder.tvTitulo.setText(e.getOwner().getLogin() == null ? "" : e.getOwner().getLogin());
-        holder.tvIdioma.setText(f.getLanguage());
+        holder.tvIdioma.setText(context.getString(R.string.idioma, f.getLanguage()));
 
         holder.view.setTag(e.getId());
 

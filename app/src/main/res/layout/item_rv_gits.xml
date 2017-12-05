@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:maxLength="30"
 
-            android:text="Titulo"
+            android:text="@string/titulo"
             android:textAlignment="center"
             android:textSize="16dp" />
 

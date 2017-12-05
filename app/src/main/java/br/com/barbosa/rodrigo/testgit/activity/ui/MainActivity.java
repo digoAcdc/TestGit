@@ -59,6 +59,11 @@ public class MainActivity extends AppCompatActivity  implements MainView {
             public void OnClick(View view, int index) {
 
             }
+
+            @Override
+            public void OnClickFavorito(View view, int index) {
+
+            }
         };
 
     }

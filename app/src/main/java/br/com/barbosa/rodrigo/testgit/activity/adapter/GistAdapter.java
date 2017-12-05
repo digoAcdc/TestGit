@@ -26,20 +26,27 @@ public class GistAdapter extends RecyclerView.Adapter<GistAdapter.CustomViewHold
     private List<Gist> mLstGist;
     private final GistOnClickListener onClickListener;
 
+
     public GistAdapter(Context context, GistOnClickListener onClickListener) {
         this.context = context;
         this.mLstGist = new ArrayList<>();
         this.onClickListener = onClickListener;
+
     }
 
 
     public interface GistOnClickListener {
         public void OnClick(View view, int index);
+        public void OnClickFavorito(View view, int index);
     }
 
     public void addAll(List<Gist> lstGist) {
         mLstGist.addAll(lstGist);
         notifyDataSetChanged();
+    }
+
+    public Gist getWithIndex(int index) {
+       return mLstGist.get(index);
     }
 
 
@@ -62,6 +69,7 @@ public class GistAdapter extends RecyclerView.Adapter<GistAdapter.CustomViewHold
         holder.tvIdioma.setText(context.getString(R.string.idioma, f.getLanguage()));
 
         holder.view.setTag(e.getId());
+        holder.imvFavorito.setTag(false);
 
         if (e.getOwner() != null)
             if (e.getOwner().getAvatarUrl() != null)
@@ -73,6 +81,12 @@ public class GistAdapter extends RecyclerView.Adapter<GistAdapter.CustomViewHold
                 @Override
                 public void onClick(View v) {
                     onClickListener.OnClick(holder.view, position);
+                }
+            });
+            holder.imvFavorito.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onClickListener.OnClickFavorito(holder.view, position);
                 }
             });
         }
@@ -89,6 +103,7 @@ public class GistAdapter extends RecyclerView.Adapter<GistAdapter.CustomViewHold
         TextView tvNome;
         TextView tvIdioma;
         ImageView imvAvatar;
+        ImageView imvFavorito;
 
 
         private View view;
@@ -100,6 +115,7 @@ public class GistAdapter extends RecyclerView.Adapter<GistAdapter.CustomViewHold
             this.tvNome = (TextView) view.findViewById(R.id.tvNome);
             this.tvIdioma = (TextView) view.findViewById(R.id.tvIdioma);
             this.imvAvatar = (ImageView) view.findViewById(R.id.imvAvatar);
+            this.imvFavorito = (ImageView) view.findViewById(R.id.imvFavorito);
 
 
         }

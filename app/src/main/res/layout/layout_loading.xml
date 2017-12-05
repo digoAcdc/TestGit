@@ -13,6 +13,7 @@
         android:src="@drawable/git_loading"/>
 
     <TextView
+        android:id="@+id/tvTexto"
         android:textStyle="bold"
         android:textAlignment="center"
         android:layout_width="match_parent"

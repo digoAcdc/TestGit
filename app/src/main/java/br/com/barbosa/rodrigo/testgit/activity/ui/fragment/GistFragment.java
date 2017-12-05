@@ -116,8 +116,8 @@ public class GistFragment extends Fragment implements MainView {
                     File file = (File) g.getFiles().values().toArray()[0];
                     Favorito f = new Favorito();
                     f.setId(g.getId());
-                    f.setIdioma(getString(R.string.idioma, f.getIdioma()));
-                    f.setNome(getString(R.string.nome, file.getFilename()));
+                    f.setIdioma(getString(R.string.idioma, f.getIdioma() == null ? "" : f.getIdioma()));
+                    f.setNome(getString(R.string.nome, file.getFilename() == null ? "" : file.getFilename()));
                     if (g.getOwner() != null)
                         f.setTitulo(g.getOwner().getLogin() == null ? "" : g.getOwner().getLogin());
 

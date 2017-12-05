@@ -13,7 +13,6 @@ import java.util.HashMap;
 import br.com.barbosa.rodrigo.testgit.activity.model.Favorito;
 
 
-
 public class DBHelper extends SQLiteOpenHelper {
 
     public static final String DATABASE_NAME = "MyDBName.db";
@@ -32,7 +31,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        // TODO Auto-generated method stub
+
         db.execSQL(
                 "create table favorito " +
                         "(id String primary key, nome text,titulo text,idioma text, imagem text)"
@@ -59,10 +58,26 @@ public class DBHelper extends SQLiteOpenHelper {
         return true;
     }
 
-    public Cursor getData(String id) {
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor res = db.rawQuery("select * from " + TABLE_NAME + " where id=" + id + "", null);
-        return res;
+    public Favorito getData(String id) {
+        try {
+
+            SQLiteDatabase db = this.getReadableDatabase();
+            Cursor res = db.rawQuery("select * from " + TABLE_NAME + " where id=" + id + "", null);
+
+            while (res.isAfterLast() == false) {
+                Favorito f = new Favorito();
+                f.setId(res.getString(res.getColumnIndex(COLUMN_ID)));
+                f.setNome(res.getString(res.getColumnIndex(COLUMN_NOME)));
+                f.setIdioma(res.getString(res.getColumnIndex(COLUMN_IDIOMA)));
+                f.setTitulo(res.getString(res.getColumnIndex(COLUMN_TITULO)));
+                f.setImagem(res.getString(res.getColumnIndex(COLUMN_IMAGEM)));
+
+                return f;
+            }
+        } catch (Exception e) {
+            return new Favorito();
+        }
+        return new Favorito();
     }
 
     public int numberOfRows() {
@@ -79,18 +94,29 @@ public class DBHelper extends SQLiteOpenHelper {
                 new String[]{id});
     }
 
-    public ArrayList<String> getAllFavoritos() {
-        ArrayList<String> array_list = new ArrayList<String>();
+    public ArrayList<Favorito> getAllFavoritos() {
+        ArrayList<Favorito> array_list = new ArrayList<Favorito>();
 
-        //hp = new HashMap();
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor res = db.rawQuery("select * from " + COLUMN_NOME, null);
-        res.moveToFirst();
+        try {
+            SQLiteDatabase db = this.getReadableDatabase();
+            Cursor res = db.rawQuery("select * from " + TABLE_NAME, null);
+            res.moveToFirst();
 
-        while (res.isAfterLast() == false) {
-            array_list.add(res.getString(res.getColumnIndex(COLUMN_NOME)));
-            res.moveToNext();
+            while (res.isAfterLast() == false) {
+                Favorito f = new Favorito();
+                f.setId(res.getString(res.getColumnIndex(COLUMN_ID)));
+                f.setNome(res.getString(res.getColumnIndex(COLUMN_NOME)));
+                f.setIdioma(res.getString(res.getColumnIndex(COLUMN_IDIOMA)));
+                f.setTitulo(res.getString(res.getColumnIndex(COLUMN_TITULO)));
+                f.setImagem(res.getString(res.getColumnIndex(COLUMN_IMAGEM)));
+
+                array_list.add(f);
+                res.moveToNext();
+            }
+        } catch (Exception e) {
+            return array_list;
         }
+
         return array_list;
     }
 }

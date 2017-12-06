@@ -1,10 +1,13 @@
 package br.com.barbosa.rodrigo.testgit.activity.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Created by rodrigobarbosa on 05/12/17.
  */
 
-public class Favorito {
+public class Favorito implements Parcelable {
 
     public String id;
     public String nome;
@@ -13,6 +16,31 @@ public class Favorito {
     public String imagem;
     public String caminhoArquivo;
 
+    public Favorito() {
+
+    }
+
+
+    protected Favorito(Parcel in) {
+        id = in.readString();
+        nome = in.readString();
+        titulo = in.readString();
+        idioma = in.readString();
+        imagem = in.readString();
+        caminhoArquivo = in.readString();
+    }
+
+    public static final Creator<Favorito> CREATOR = new Creator<Favorito>() {
+        @Override
+        public Favorito createFromParcel(Parcel in) {
+            return new Favorito(in);
+        }
+
+        @Override
+        public Favorito[] newArray(int size) {
+            return new Favorito[size];
+        }
+    };
 
     public String getId() {
         return id;
@@ -60,5 +88,20 @@ public class Favorito {
 
     public void setCaminhoArquivo(String caminhoArquivo) {
         this.caminhoArquivo = caminhoArquivo;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(id);
+        dest.writeString(nome);
+        dest.writeString(titulo);
+        dest.writeString(idioma);
+        dest.writeString(imagem);
+        dest.writeString(caminhoArquivo);
     }
 }

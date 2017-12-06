@@ -1,6 +1,7 @@
 package br.com.barbosa.rodrigo.testgit.activity.ui.fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -23,9 +24,11 @@ import java.util.List;
 import br.com.barbosa.rodrigo.testgit.R;
 import br.com.barbosa.rodrigo.testgit.activity.adapter.GistAdapter;
 import br.com.barbosa.rodrigo.testgit.activity.data.DBHelper;
+import br.com.barbosa.rodrigo.testgit.activity.model.Constants;
 import br.com.barbosa.rodrigo.testgit.activity.model.Favorito;
 import br.com.barbosa.rodrigo.testgit.activity.model.File;
 import br.com.barbosa.rodrigo.testgit.activity.model.Gist;
+import br.com.barbosa.rodrigo.testgit.activity.ui.DetailGistActivity;
 import br.com.barbosa.rodrigo.testgit.activity.ui.MainPresenter;
 import br.com.barbosa.rodrigo.testgit.activity.ui.MainView;
 
@@ -96,7 +99,10 @@ public class GistFragment extends Fragment implements MainView {
 
             @Override
             public void OnClick(View view, int index) {
-                Toast.makeText(getContext(), "", Toast.LENGTH_LONG).show();
+                Intent i = new Intent(getActivity(), DetailGistActivity.class);
+                i.putExtra(Constants.FAVORITOS, returnFavorito(index));
+
+                startActivity(i);
             }
 
             @Override
@@ -112,22 +118,7 @@ public class GistFragment extends Fragment implements MainView {
                     imvFavorito.startAnimation(pulse);
                     imvFavorito.setTag(false);
                 } else {
-                    Gist g = mAdapter.getWithIndex(index);
-                    File file = (File) g.getFiles().values().toArray()[0];
-                    Favorito f = new Favorito();
-                    f.setId(g.getId());
-                    f.setCaminhoArquivo(file.getRaw_url());
-                    f.setIdioma(getString(R.string.idioma, f.getIdioma() == null ? "" : f.getIdioma()));
-                    f.setNome(getString(R.string.nome, file.getFilename() == null ? "" : file.getFilename()));
-                    if (g.getOwner() != null)
-                        f.setTitulo(g.getOwner().getLogin() == null ? "" : g.getOwner().getLogin());
-
-                    if (g.getOwner() != null)
-                        if (g.getOwner().getAvatarUrl() != null)
-                            f.setImagem(g.getOwner().getAvatarUrl());
-
-
-                    db.insertFavorito(f);
+                    db.insertFavorito(returnFavorito(index));
                     imvFavorito.setImageResource(R.drawable.ic_favorito);
                     Animation pulse = AnimationUtils.loadAnimation(getContext(), R.anim.pulse);
                     imvFavorito.startAnimation(pulse);
@@ -137,6 +128,25 @@ public class GistFragment extends Fragment implements MainView {
             }
         };
 
+    }
+
+    private Favorito returnFavorito(int index){
+        Gist g = mAdapter.getWithIndex(index);
+        File file = (File) g.getFiles().values().toArray()[0];
+        Favorito f = new Favorito();
+        f.setId(g.getId());
+        f.setCaminhoArquivo(file.getRaw_url());
+        f.setIdioma(getString(R.string.idioma, f.getIdioma() == null ? "" : f.getIdioma()));
+        f.setNome(getString(R.string.nome, file.getFilename() == null ? "" : file.getFilename()));
+        if (g.getOwner() != null)
+            f.setTitulo(g.getOwner().getLogin() == null ? "" : g.getOwner().getLogin());
+
+        if (g.getOwner() != null)
+            if (g.getOwner().getAvatarUrl() != null)
+                f.setImagem(g.getOwner().getAvatarUrl());
+
+
+        return f;
     }
 
     public void showData(List<Gist> gists) {

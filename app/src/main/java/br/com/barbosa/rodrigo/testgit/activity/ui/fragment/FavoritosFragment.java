@@ -1,6 +1,7 @@
 package br.com.barbosa.rodrigo.testgit.activity.ui.fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -24,9 +25,11 @@ import br.com.barbosa.rodrigo.testgit.R;
 import br.com.barbosa.rodrigo.testgit.activity.adapter.FavoritosAdapter;
 import br.com.barbosa.rodrigo.testgit.activity.adapter.GistAdapter;
 import br.com.barbosa.rodrigo.testgit.activity.data.DBHelper;
+import br.com.barbosa.rodrigo.testgit.activity.model.Constants;
 import br.com.barbosa.rodrigo.testgit.activity.model.Favorito;
 import br.com.barbosa.rodrigo.testgit.activity.model.File;
 import br.com.barbosa.rodrigo.testgit.activity.model.Gist;
+import br.com.barbosa.rodrigo.testgit.activity.ui.DetailGistActivity;
 import br.com.barbosa.rodrigo.testgit.activity.ui.MainPresenter;
 
 /**
@@ -109,7 +112,10 @@ public class FavoritosFragment extends Fragment {
 
             @Override
             public void OnClick(View view, int index) {
-                Toast.makeText(getContext(), "", Toast.LENGTH_LONG).show();
+                Intent i = new Intent(getActivity(), DetailGistActivity.class);
+                i.putExtra(Constants.FAVORITOS, mAdapter.getWithIndex(index));
+
+                startActivity(i);
             }
 
             @Override

@@ -48,6 +48,8 @@ public class FavoritosAdapter extends RecyclerView.Adapter<FavoritosAdapter.Cust
         notifyDataSetChanged();
     }
 
+
+
     public void clean(){
         mLstFavoritos.clear();
         notifyDataSetChanged();

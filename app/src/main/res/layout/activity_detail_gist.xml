@@ -16,6 +16,7 @@
 
 
         <ImageView
+            android:id="@+id/imvAvatar"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_gravity="center"
@@ -24,31 +25,35 @@
 
 
         <TextView
+            android:id="@+id/tvTitulo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Titulo: Hahahahahaha"
+            tools:text="Titulo: Hahahahahaha"
             android:textAlignment="center" />
 
         <TextView
+            android:id="@+id/tvNome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Nome: Hahahahahaha"
             android:textAlignment="center" />
 
         <TextView
+            android:id="@+id/tvIdioma"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Linguagem: Hahahahahaha"
+            tools:text="Linguagem: Hahahahahaha"
             android:textAlignment="center" />
 
 
         <TextView
+            android:id="@+id/tvVerArquivo"
             android:textStyle="bold"
             android:textColor="@color/colorPrimaryDark"
             android:layout_marginTop="16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Ver arquivo"
+            tools:text="Ver arquivo"
             android:textAlignment="center" />
 
 

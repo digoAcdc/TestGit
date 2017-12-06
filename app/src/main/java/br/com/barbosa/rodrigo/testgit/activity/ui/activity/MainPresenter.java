@@ -2,6 +2,7 @@ package br.com.barbosa.rodrigo.testgit.activity.ui.activity;
 
 
 import java.util.List;
+
 import br.com.barbosa.rodrigo.testgit.activity.api.GistAPI;
 import br.com.barbosa.rodrigo.testgit.activity.data.ApiService;
 import br.com.barbosa.rodrigo.testgit.activity.model.Gist;

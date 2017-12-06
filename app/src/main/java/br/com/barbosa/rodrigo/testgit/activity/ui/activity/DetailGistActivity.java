@@ -1,10 +1,8 @@
 package br.com.barbosa.rodrigo.testgit.activity.ui.activity;
 
 import android.content.Intent;
-import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -12,30 +10,9 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.List;
-
 import br.com.barbosa.rodrigo.testgit.R;
-import br.com.barbosa.rodrigo.testgit.activity.api.GistAPI;
-import br.com.barbosa.rodrigo.testgit.activity.data.ApiService;
 import br.com.barbosa.rodrigo.testgit.activity.model.Constants;
 import br.com.barbosa.rodrigo.testgit.activity.model.Favorito;
-import br.com.barbosa.rodrigo.testgit.activity.model.Gist;
-import okhttp3.ResponseBody;
-import retrofit2.Retrofit;
-import rx.Observer;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Action1;
-import rx.schedulers.Schedulers;
 
 public class DetailGistActivity extends AppCompatActivity {
 
@@ -78,9 +55,6 @@ public class DetailGistActivity extends AppCompatActivity {
 
     }
 
-
-
-
     private void preencheView() {
         tvNome.setText(favorito.getNome());
 
@@ -94,9 +68,9 @@ public class DetailGistActivity extends AppCompatActivity {
 
     private void setToolbar() {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        if (((AppCompatActivity) this).getSupportActionBar() != null) {
-            ((AppCompatActivity) this).getSupportActionBar().setTitle(R.string.git_title);
-            ((AppCompatActivity) this).getSupportActionBar().setSubtitle("Detalhes");
+        if ((this).getSupportActionBar() != null) {
+            (this).getSupportActionBar().setTitle(R.string.git_title);
+            (this).getSupportActionBar().setSubtitle("Detalhes");
         }
     }
 

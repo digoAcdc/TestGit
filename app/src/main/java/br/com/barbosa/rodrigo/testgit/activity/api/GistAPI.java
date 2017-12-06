@@ -1,8 +1,6 @@
 package br.com.barbosa.rodrigo.testgit.activity.api;
 
-import java.io.File;
 import java.util.List;
-
 
 import br.com.barbosa.rodrigo.testgit.activity.model.Gist;
 import okhttp3.ResponseBody;

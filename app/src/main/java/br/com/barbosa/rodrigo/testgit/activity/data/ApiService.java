@@ -1,6 +1,5 @@
 package br.com.barbosa.rodrigo.testgit.activity.data;
 
-import com.facebook.stetho.BuildConfig;
 import com.facebook.stetho.okhttp3.StethoInterceptor;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.GsonBuilder;

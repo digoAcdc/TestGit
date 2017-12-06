@@ -7,9 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
-import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import br.com.barbosa.rodrigo.testgit.R;
 import br.com.barbosa.rodrigo.testgit.activity.ui.fragment.FavoritosFragment;

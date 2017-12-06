@@ -22,6 +22,7 @@ public class ApiService {
             .baseUrl("https://api.github.com/")
             .addConverterFactory(GsonConverterFactory.create());
 
+
     public Retrofit getInstance() {
 
         GsonBuilder gsonBuilder = new GsonBuilder();
@@ -52,4 +53,5 @@ public class ApiService {
 
         return retrofit;
     }
+
 }

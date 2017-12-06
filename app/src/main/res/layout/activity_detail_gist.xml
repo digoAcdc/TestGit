@@ -53,7 +53,7 @@
             android:layout_marginTop="16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:text="Ver arquivo"
+            android:text="Ver arquivo"
             android:textAlignment="center" />
 
 

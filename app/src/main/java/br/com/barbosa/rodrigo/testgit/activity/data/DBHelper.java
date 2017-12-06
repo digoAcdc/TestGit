@@ -22,6 +22,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String COLUMN_TITULO = "titulo";
     public static final String COLUMN_IDIOMA = "idioma";
     public static final String COLUMN_IMAGEM = "imagem";
+    public static final String COLUMN_ARQUIVO = "arquivo";
 
     private HashMap hp;
 
@@ -34,7 +35,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
         db.execSQL(
                 "create table favorito " +
-                        "(id String primary key, nome text,titulo text,idioma text, imagem text)"
+                        "(id String primary key, nome text,titulo text,idioma text, imagem text, arquivo text)"
         );
     }
 
@@ -53,7 +54,7 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put(COLUMN_TITULO, favorito.getTitulo());
         contentValues.put(COLUMN_IDIOMA, favorito.getIdioma());
         contentValues.put(COLUMN_IMAGEM, favorito.getImagem());
-
+        contentValues.put(COLUMN_ARQUIVO, favorito.getCaminhoArquivo());
         db.insert(TABLE_NAME, null, contentValues);
         return true;
     }
@@ -71,6 +72,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 f.setIdioma(res.getString(res.getColumnIndex(COLUMN_IDIOMA)));
                 f.setTitulo(res.getString(res.getColumnIndex(COLUMN_TITULO)));
                 f.setImagem(res.getString(res.getColumnIndex(COLUMN_IMAGEM)));
+                f.setCaminhoArquivo(res.getString(res.getColumnIndex(COLUMN_ARQUIVO)));
 
                 return f;
             }
@@ -109,6 +111,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 f.setIdioma(res.getString(res.getColumnIndex(COLUMN_IDIOMA)));
                 f.setTitulo(res.getString(res.getColumnIndex(COLUMN_TITULO)));
                 f.setImagem(res.getString(res.getColumnIndex(COLUMN_IMAGEM)));
+                f.setCaminhoArquivo(res.getString(res.getColumnIndex(COLUMN_ARQUIVO)));
 
                 array_list.add(f);
                 res.moveToNext();

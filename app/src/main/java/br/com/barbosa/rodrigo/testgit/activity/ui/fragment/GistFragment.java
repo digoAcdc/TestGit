@@ -116,6 +116,7 @@ public class GistFragment extends Fragment implements MainView {
                     File file = (File) g.getFiles().values().toArray()[0];
                     Favorito f = new Favorito();
                     f.setId(g.getId());
+                    f.setCaminhoArquivo(file.getRaw_url());
                     f.setIdioma(getString(R.string.idioma, f.getIdioma() == null ? "" : f.getIdioma()));
                     f.setNome(getString(R.string.nome, file.getFilename() == null ? "" : file.getFilename()));
                     if (g.getOwner() != null)

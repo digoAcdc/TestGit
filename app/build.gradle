@@ -14,11 +14,11 @@ android {
         vectorDrawables.useSupportLibrary = true
     }
 
-    productFlavors{
-        versao_um{
+    productFlavors {
+        versao_um {
 
         }
-        versao_dois{
+        versao_dois {
 
         }
     }

@@ -8,6 +8,7 @@ public class File {
 
     private String filename;
     private String language;
+    private String raw_url;
 
     public String getFilename() {
         return filename;
@@ -23,5 +24,13 @@ public class File {
 
     public void setLanguage(String language) {
         this.language = language;
+    }
+
+    public String getRaw_url() {
+        return raw_url;
+    }
+
+    public void setRaw_url(String raw_url) {
+        this.raw_url = raw_url;
     }
 }

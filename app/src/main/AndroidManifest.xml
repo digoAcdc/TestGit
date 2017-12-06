@@ -24,11 +24,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:configChanges="orientation|keyboardHidden|screenSize"
             android:name=".activity.ui.MainNavigationActivity"
-            android:label="@string/title_activity_main_navigation">
-
-        </activity>
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_main_navigation"></activity>
+        <activity android:name=".activity.ui.DetailGistActivity"></activity>
     </application>
 
 </manifest>

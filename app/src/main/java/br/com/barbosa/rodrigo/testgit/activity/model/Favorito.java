@@ -11,6 +11,7 @@ public class Favorito {
     public String titulo;
     public String idioma;
     public String imagem;
+    public String caminhoArquivo;
 
 
     public String getId() {
@@ -51,5 +52,13 @@ public class Favorito {
 
     public void setImagem(String imagem) {
         this.imagem = imagem;
+    }
+
+    public String getCaminhoArquivo() {
+        return caminhoArquivo;
+    }
+
+    public void setCaminhoArquivo(String caminhoArquivo) {
+        this.caminhoArquivo = caminhoArquivo;
     }
 }

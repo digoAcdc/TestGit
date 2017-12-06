@@ -3,7 +3,6 @@ package br.com.barbosa.rodrigo.testgit.activity.ui.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.annotation.UiThread;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -18,8 +17,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.squareup.picasso.Picasso;
-
 import java.util.List;
 
 import br.com.barbosa.rodrigo.testgit.R;
@@ -28,7 +25,6 @@ import br.com.barbosa.rodrigo.testgit.activity.data.DBHelper;
 import br.com.barbosa.rodrigo.testgit.activity.model.Favorito;
 import br.com.barbosa.rodrigo.testgit.activity.model.File;
 import br.com.barbosa.rodrigo.testgit.activity.model.Gist;
-import br.com.barbosa.rodrigo.testgit.activity.ui.MainActivity;
 import br.com.barbosa.rodrigo.testgit.activity.ui.MainPresenter;
 import br.com.barbosa.rodrigo.testgit.activity.ui.MainView;
 
@@ -111,13 +107,6 @@ public class GistFragment extends Fragment implements MainView {
                     Animation pulse = AnimationUtils.loadAnimation(getContext(), R.anim.pulse);
                     imvFavorito.startAnimation(pulse);
                     imvFavorito.setTag(false);
-                    /*getActivity().runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            Picasso.with(getContext()).load(R.drawable.ic_nao_favoritado).into(imvFavorito);
-                            imvFavorito.setTag(false);
-                        }
-                    });*/
                 } else {
                     Gist g = mAdapter.getWithIndex(index);
                     File file = (File) g.getFiles().values().toArray()[0];
@@ -138,14 +127,6 @@ public class GistFragment extends Fragment implements MainView {
                     Animation pulse = AnimationUtils.loadAnimation(getContext(), R.anim.pulse);
                     imvFavorito.startAnimation(pulse);
                     imvFavorito.setTag(true);
-                    /*getActivity().runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            Picasso.with(getContext()).load(R.drawable.ic_favorito).into(imvFavorito);
-                            imvFavorito.setTag(true);
-                        }
-                    });*/
-
 
                 }
             }

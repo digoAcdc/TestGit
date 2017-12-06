@@ -32,7 +32,7 @@ private ImageView imageView;
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                Intent i = new Intent(SplashActivity.this, MainActivity.class);
+                Intent i = new Intent(SplashActivity.this, MainNavigationActivity.class);
                 startActivity(i);
                 finish();
             }

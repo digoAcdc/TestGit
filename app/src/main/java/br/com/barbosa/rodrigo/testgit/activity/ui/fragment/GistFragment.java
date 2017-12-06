@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -38,6 +39,19 @@ import br.com.barbosa.rodrigo.testgit.activity.ui.activity.MainView;
 public class GistFragment extends Fragment implements MainView {
 
 
+
+
+
+    private int previousTotal = 0; // The total number of items in the dataset after the last load
+    private boolean loading = true; // True if we are still waiting for the last set of data to load.
+    private int visibleThreshold = 2; // The minimum amount of items to have below your current scroll position before loading more.
+    int firstVisibleItem, visibleItemCount, totalItemCount;
+
+    private boolean infiniteScrollingEnabled = true;
+
+    private boolean controlsVisible = true;
+
+
     private int page = 0;
     private int per_page = 15;
     private LinearLayoutManager mLayoutManager;
@@ -60,6 +74,45 @@ public class GistFragment extends Fragment implements MainView {
         super.onViewCreated(view, savedInstanceState);
 
         rvGits = (RecyclerView) view.findViewById(R.id.rvGits);
+
+        rvGits.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+
+                RecyclerView.LayoutManager manager = recyclerView.getLayoutManager();
+
+                visibleItemCount = recyclerView.getChildCount();
+                if (manager instanceof GridLayoutManager) {
+                    GridLayoutManager gridLayoutManager = (GridLayoutManager)manager;
+                    firstVisibleItem = gridLayoutManager.findFirstVisibleItemPosition();
+                    totalItemCount = gridLayoutManager.getItemCount();
+                } else if (manager instanceof LinearLayoutManager) {
+                    LinearLayoutManager linearLayoutManager = (LinearLayoutManager)manager;
+                    firstVisibleItem = linearLayoutManager.findFirstVisibleItemPosition();
+                    totalItemCount = linearLayoutManager.getItemCount();
+                }
+
+
+                if (infiniteScrollingEnabled) {
+                    if (loading) {
+                        if (totalItemCount > previousTotal) {
+                            loading = false;
+                            previousTotal = totalItemCount;
+                        }
+                    }
+
+
+                    if (!loading && (totalItemCount - visibleItemCount <= firstVisibleItem + visibleThreshold)) {
+                        // End has been reached
+                        // do something
+                        onLoadMore();
+                        loading = true;
+                    }
+                }
+
+            }
+        });
         containerLoading = (LinearLayout) view.findViewById(R.id.containerLoading);
 
         containerLoading.setVisibility(View.VISIBLE);
@@ -67,6 +120,10 @@ public class GistFragment extends Fragment implements MainView {
 
         initRecyclerView();
         setToolbar();
+    }
+
+    private void onLoadMore(){
+        mainPresenter.load(page, per_page);
     }
 
     private void setToolbar() {
@@ -89,7 +146,7 @@ public class GistFragment extends Fragment implements MainView {
         mAdapter = new GistAdapter(getContext(), onclickView());
         rvGits.setAdapter(mAdapter);
 
-        mainPresenter.load(page, per_page);
+       onLoadMore();
 
     }
 
@@ -154,6 +211,7 @@ public class GistFragment extends Fragment implements MainView {
 
         mAdapter.addAll(gists);
         containerLoading.setVisibility(View.GONE);
+        page += 1;
     }
 
     @Override

@@ -38,19 +38,12 @@ import br.com.barbosa.rodrigo.testgit.activity.ui.activity.MainView;
  */
 public class GistFragment extends Fragment implements MainView {
 
-
-
-
-
-    private int previousTotal = 0; // The total number of items in the dataset after the last load
-    private boolean loading = true; // True if we are still waiting for the last set of data to load.
-    private int visibleThreshold = 2; // The minimum amount of items to have below your current scroll position before loading more.
+    private int previousTotal = 0;
+    private boolean loading = true;
+    private int visibleThreshold = 2;
     int firstVisibleItem, visibleItemCount, totalItemCount;
 
     private boolean infiniteScrollingEnabled = true;
-
-    private boolean controlsVisible = true;
-
 
     private int page = 0;
     private int per_page = 15;

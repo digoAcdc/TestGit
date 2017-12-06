@@ -17,8 +17,8 @@
 
         <ImageView
             android:id="@+id/imvAvatar"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
             android:layout_gravity="center"
             android:layout_marginTop="16dp"
             android:src="@drawable/ic_avatar" />
@@ -47,6 +47,7 @@
 
 
         <TextView
+            android:textSize="24sp"
             android:id="@+id/tvVerArquivo"
             android:textStyle="bold"
             android:textColor="@color/colorPrimaryDark"

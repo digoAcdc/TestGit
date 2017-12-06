@@ -25,10 +25,12 @@ android {
 
     buildTypes {
         release {
+            buildConfigField "boolean", "USE_STETHO", "false"
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         debug {
+            buildConfigField "boolean", "USE_STETHO", "true"
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }

@@ -1,18 +1,23 @@
-<FrameLayout
-    android:layout_margin="16dp"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="16dp"
     tools:context="br.com.barbosa.rodrigo.testgit.activity.ui.fragment.SobreFragment">
 
-
-
-    <TextView
+    <ScrollView
         android:layout_marginBottom="55dp"
-        android:id="@+id/tvSobre"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/sobre" />
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvSobre"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:text="@string/sobre" />
+
+    </ScrollView>
 
 </FrameLayout>

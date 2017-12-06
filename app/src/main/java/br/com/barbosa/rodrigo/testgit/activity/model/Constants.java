@@ -7,4 +7,5 @@ package br.com.barbosa.rodrigo.testgit.activity.model;
 public class Constants {
 
     public static final String FAVORITOS = "FAVORITOS";
+    public static final String ARQUIVO = "ARQUIVO";
 }

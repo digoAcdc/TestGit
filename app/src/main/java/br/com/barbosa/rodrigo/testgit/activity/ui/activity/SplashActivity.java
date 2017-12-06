@@ -1,4 +1,4 @@
-package br.com.barbosa.rodrigo.testgit.activity.ui;
+package br.com.barbosa.rodrigo.testgit.activity.ui.activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;

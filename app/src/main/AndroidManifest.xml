@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activity.ui.SplashActivity"
+            android:name=".activity.ui.activity.SplashActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name"
             android:theme="@style/FullScreenNoAction">
@@ -24,10 +24,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.ui.MainNavigationActivity"
+            android:name=".activity.ui.activity.MainNavigationActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/title_activity_main_navigation"></activity>
-        <activity android:name=".activity.ui.DetailGistActivity"></activity>
+            android:label="@string/title_activity_main_navigation" />
+        <activity android:name=".activity.ui.activity.DetailGistActivity" />
+        <activity android:name=".activity.ui.activity.FileActivity"></activity>
     </application>
 
 </manifest>

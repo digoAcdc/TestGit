@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
 
         android:orientation="vertical"
-        tools:context="br.com.barbosa.rodrigo.testgit.activity.ui.DetailGistActivity">
+        tools:context="br.com.barbosa.rodrigo.testgit.activity.ui.activity.DetailGistActivity">
 
 
         <ImageView

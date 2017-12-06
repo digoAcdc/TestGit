@@ -37,6 +37,7 @@
     <string name="subtittle_sobre">About</string>
     <string name="subtittle_favoritos">Favorites</string>
     <string name="subtittle_home">Home</string>
+    <string name="texto_do_arquivo">Texto do arquivo</string>
 
 
 </resources>

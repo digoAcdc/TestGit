@@ -1,4 +1,4 @@
-package br.com.barbosa.rodrigo.testgit.activity.ui;
+package br.com.barbosa.rodrigo.testgit.activity.ui.activity;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;

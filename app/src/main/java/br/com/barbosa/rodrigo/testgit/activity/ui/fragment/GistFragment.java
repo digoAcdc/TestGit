@@ -28,9 +28,9 @@ import br.com.barbosa.rodrigo.testgit.activity.model.Constants;
 import br.com.barbosa.rodrigo.testgit.activity.model.Favorito;
 import br.com.barbosa.rodrigo.testgit.activity.model.File;
 import br.com.barbosa.rodrigo.testgit.activity.model.Gist;
-import br.com.barbosa.rodrigo.testgit.activity.ui.DetailGistActivity;
-import br.com.barbosa.rodrigo.testgit.activity.ui.MainPresenter;
-import br.com.barbosa.rodrigo.testgit.activity.ui.MainView;
+import br.com.barbosa.rodrigo.testgit.activity.ui.activity.DetailGistActivity;
+import br.com.barbosa.rodrigo.testgit.activity.ui.activity.MainPresenter;
+import br.com.barbosa.rodrigo.testgit.activity.ui.activity.MainView;
 
 /**
  * A simple {@link Fragment} subclass.

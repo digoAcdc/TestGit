@@ -4,6 +4,7 @@ package br.com.barbosa.rodrigo.testgit.activity.ui.fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -44,11 +45,6 @@ public class GistFragment extends Fragment implements MainView {
     private LinearLayout containerLoading;
 
 
-    public GistFragment() {
-        // Required empty public constructor
-    }
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -67,6 +63,14 @@ public class GistFragment extends Fragment implements MainView {
         mainPresenter = new MainPresenter(this);
 
         initRecyclerView();
+        setToolbar();
+    }
+
+    private void setToolbar() {
+        if (((AppCompatActivity) getActivity()).getSupportActionBar() != null) {
+            ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.git_title);
+            ((AppCompatActivity) getActivity()).getSupportActionBar().setSubtitle(getString(R.string.subtittle_home));
+        }
     }
 
     private void initRecyclerView() {

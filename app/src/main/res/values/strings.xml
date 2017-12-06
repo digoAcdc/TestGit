@@ -36,10 +36,10 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="txt_fechar">Fechar</string>
     <string name="nenhuma_informacao_localizada">Nenhuma informação localizada</string>
-
-
-
-
+    <string name="git_title">GitHub Teste</string>
+    <string name="subtittle_sobre">Sobre</string>
+    <string name="subtittle_favoritos">Favoritos</string>
+    <string name="subtittle_home">Home</string>
 
 
 </resources>

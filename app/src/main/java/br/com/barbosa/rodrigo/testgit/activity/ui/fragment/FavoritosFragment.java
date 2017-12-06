@@ -4,6 +4,7 @@ package br.com.barbosa.rodrigo.testgit.activity.ui.fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -60,6 +61,14 @@ public class FavoritosFragment extends Fragment {
         tvTexto = (TextView) view.findViewById(R.id.tvTexto);
 
         initRecyclerView();
+        setToolbar();
+    }
+
+    private void setToolbar() {
+        if (((AppCompatActivity) getActivity()).getSupportActionBar() != null) {
+            ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.git_title);
+            ((AppCompatActivity) getActivity()).getSupportActionBar().setSubtitle(getString(R.string.subtittle_favoritos));
+        }
     }
 
     private void getFavoritos() {

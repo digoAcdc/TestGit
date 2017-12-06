@@ -4,6 +4,8 @@ package br.com.barbosa.rodrigo.testgit.activity.ui.fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,5 +36,15 @@ public class SobreFragment extends Fragment {
         tvSobre = (TextView)view.findViewById(R.id.tvSobre);
 
         tvSobre.setText(Html.fromHtml(getString(R.string.sobre)));
+
+        setToolbar();
     }
+
+    private void setToolbar() {
+        if (((AppCompatActivity) getActivity()).getSupportActionBar() != null) {
+            ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.git_title);
+            ((AppCompatActivity) getActivity()).getSupportActionBar().setSubtitle(getString(R.string.subtittle_sobre));
+        }
+    }
+
 }

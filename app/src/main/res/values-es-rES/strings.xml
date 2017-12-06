@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TestGit</string>
+
+    <string name="nome">nombre: %1$s</string>
+    <string name="idioma">español: %1$s</string>
+    <string name="titulo">Titulo</string>
+    <string name="title_activity_main_navigation">MainNavigationActivity</string>
+    <string name="title_home">Inicio</string>
+    <string name="title_favorite">Favoritos</string>
+    <string name="title_about">Sobre</string>
+
+    <string name="sobre">
+         <![CDATA[
+        <h1>lo que es git?</h1>
+        <p align="justify">
+        Git es un sistema de control de versiones de archivos. A través de ellos podemos desarrollar proyectos en la cual varias personas pueden contribuir simultáneamente en el mismo, editando y creando nuevos archivos y permitiendo que los mismos puedan existir sin el riesgo de que sus alteraciones sean sobrescritas.
+        </p>
+        <p align="justify">
+        Si no hay un sistema de versión, imagine el caos entre dos personas abriendo el mismo archivo al mismo tiempo. Una de las aplicaciones del git es justamente esa, permitir que un archivo pueda ser editado al mismo tiempo por personas diferentes. Por más complejo que sea, intenta mantener todo en orden para evitar problemas para nosotros los desarrolladores.
+        </p>
+        <p align="justify">
+        Otro factor importante del git (y esa es una de sus diferencias en relación al svn - en caso de que usted lo conozca) es la posibilidad de crear, en cualquier momento, varias instantáneas de su proyecto, o como llamamos más "nerdmenete", branch. Suponga que su proyecto es un sitio web html, y desea crear una nueva sección en su código HTML, pero en ese momento usted no desea que estos cambios estén disponibles para nadie más, sólo para usted. Es decir, usted quiere cambiar el proyecto (incluyendo varios archivos en él), pero todavía no quiere que sea tratado como "oficial" para otras personas, entonces usted crea una rama (como si fuera una copia espejo) y entonces trabaja sólo en esa rama , hasta acertar todos los detalles de él. Después de eso, usted puede hacer un merge de su rama hasta el proyecto original. Mira bien, si todo eso que has leído sólo te ayudó a confundir más - respire profundamente - y sigue adelante. Con ejemplos todo queda mejor.
+        </p>
+        <h2>Qué es github?</h2>
+        <p align="justify">
+        Github es un servicio web que ofrece varias funcionalidades adicionales aplicadas al git. Resumiendo, usted podrá usar gratuitamente el github para alojar sus proyectos personales. Además, casi todos los proyectos / frameworks / bibliotecas sobre desarrollo de código abierto están en github, y usted puede acompañar a través de nuevas versiones, contribuir a informar de errores o incluso enviar código y correcciones. Si usted es desarrollador y todavía no tiene github, usted está atrasado y esa es la hora de correr detrás de la pérdida.
+        </p>
+        ]]>
+
+    </string>
+
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="txt_fechar">Cerrar</string>
+    <string name="nenhuma_informacao_localizada">No hay información localizada</string>
+    <string name="git_title">GitHub Prueba</string>
+    <string name="subtittle_sobre">Sobre</string>
+    <string name="subtittle_favoritos">Favoritos</string>
+    <string name="subtittle_home">Inicio</string>
+</resources>
